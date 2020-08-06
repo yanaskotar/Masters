@@ -1,0 +1,104 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{mystyle}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian, french, german, english, ukrainian]{babel}
+\usepackage{csquotes}
+\usepackage{setspace}
+% полуторный интервал
+\onehalfspacing 
+
+
+% Расширенные наборы математических символов.
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{mathtext}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{lastpage}
+
+% \usepackage{showkeys}
+
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage{tabularx}
+
+\usepackage	[
+			style		= gost-numeric,
+			maxbibnames = 3,
+			sorting		= nyt,
+			doi			= true,
+			url			= false,
+			isbn 		= true,
+			eprint		= true,
+			language	= autobib,
+			autolang	= other
+			]{biblatex}
+\addbibresource{ref.bib}
+\newcounter{mycitecount}
+\AtEveryBibitem{\stepcounter{mycitecount}}
+
+
+\usepackage[mycitecount]{totalcount}
+
+
+\theoremstyle	{plain}
+\newtheorem		{theorem}					{\normalfont \textbf{Теорема}}	[section]
+\newtheorem		{lemma}			[theorem]	{Лема}
+\newtheorem		{corollary}		[theorem]	{Наслідок}
+\newtheorem		{proposition}	[theorem]	{Пропозиція}
+\newtheorem		{assertion}		[theorem]	{Твердження}
+\newtheorem		{assumption}	[theorem]	{Умова}
+\theoremstyle	{definition}
+\newtheorem		{definition}	[theorem]	{Означення}
+\theoremstyle	{remark}
+\newtheorem		{remark}		[theorem]	{\normalfont \textit{Зауваження}}
+\newtheorem*	{remark*}					{\normalfont \textit{Зауваження}}
+\newtheorem 	{example}		[theorem]	{\normalfont \textit{Приклад}}
+\newtheorem* 	{example*}					{\normalfont \textit{Приклад}}
+
+
+\input{auxillary/designations.tex}
+
+\usepackage	[
+	left	= 3cm,
+	right	= 1cm,
+	top		= 2cm,
+	bottom	= 2cm
+	]{geometry}
+
+
+\begin{document}
+\include{Parts/titlepage}
+\setlength{\parskip}{0.4cm}
+\include{Parts/Abstract}
+% 
+\setcounter{page}{3}
+% %
+\setlength{\parskip}{0cm}
+\renewcommand{\contentsname}{ЗМІСТ}
+\tableofcontents
+% %
+\setlength{\parskip}{0.4cm}
+\include{Parts/Introduction}
+
+\include{Parts/part-1}
+\include{Parts/part-2}
+\include{Parts/part-3}
+\include{Parts/part-4}
+\include{Parts/part-5}
+
+\include{Parts/Findings}
+
+\setlength{\parskip}{0cm}
+%
+% %
+\nocite{*}
+\renewcommand{\refname}{СПИСОК ВИКОРИСТАНИХ ПОСИЛАНЬ}
+\printbibliography
+\addcontentsline{toc}{section}{\refname}
+%
+
+\include{Parts/declaration}
+\end{document}

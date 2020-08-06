@@ -1,0 +1,28 @@
+\@addtoreset{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\usepackage{titlesec}
+
+% \renewcommand{\thesection}{\text{РОЗДІЛ} \arabic{section}}
+% \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+% \renewcommand{\newtheorem}{\arabic{section}.\arabic{theorem}}
+
+\titleformat{\section}
+[display]
+{\center\normalfont\Large\bfseries}
+{РОЗДІЛ \thesection}{0em}
+{}
+
+\usepackage{fancyhdr}
+\pagestyle{myheadings}
+\fancyhf{}
+\rhead{\thepage}
+
+
+% \renewcommand{\sectionname}{Розділ}
+
+% \renewcommand{\sectionstyle}[1]{\center\textsc\textbf}
+
+
+

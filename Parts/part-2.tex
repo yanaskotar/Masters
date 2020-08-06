@@ -1,0 +1,279 @@
+%!TEX root = ../Masters.tex
+
+\section {ГРАНИЧНІ ТРІЙКИ ТА ФУНКЦІЇ ВЕЙЛЯ}
+
+\subsection{Лінійні відношення} % (fold)
+\label{Subsec-Linear-relations}
+
+В цьому розділі розглядаються деякі відомості про лінійні відношення в гільбертовому просторі. Поняття лінійного відношення в банаховому просторі було введено і вивчалося Р.~Аренсом~\cite{Arens1961}, хоча в іншому вигляді воно зустрічалося в більш ранніх роботах, наприклад, в~\cite{Calkin1939}.
+
+Нехай $\frH$ --- гільбертів простір і $\frH^2 = \frH \times \frH$ --- декартовий добуток двох екземплярів простору $\frH$. 
+Елементи простору $\frH^2$ будемо позначати $\widehat f = \dbinom{f_1}{f_2},\ (f_1,f_2 \in \frH)$. Для $\widehat f \in \frH^2$ та $\widehat g = \dbinom{g_1}{g_2} \in \frH^2$ покладемо
+\begin{equation}
+ 	{\langle \widehat f,\widehat g\rangle}_{\frH^2} = (f_1,g_1)_\frH + (f_2,g_2)_\frH.
+\end{equation} 
+
+Позначимо через $\pi_1$ та $\pi_2$ проектори на першу та другу компоненту в $\calH \times \calH$ відповідно.
+
+\begin{definition}
+	Лінійний підпростір $\Theta \in \frH^2$ називається лінійним відношенням в $\frH$. Лінійне відношення називається замкненим, якщо підпростір $\Theta$ є замкненим в $\frH^2$. Сукупність замкнених лінійних відношень в $\frH$ позначимо $\wt \calC(\frH)$. 
+\end{definition}
+
+Множини
+\begin{gather*}
+	\dom \Theta = \left\{f_1\in \frH: \binom{f_1}{f_2}\in \Theta \text{ для деякого } f_2\in\frH\right\} = \pi_1\Theta,\\
+	\ran \Theta = \left\{f_2\in \frH: \binom{f_1}{f_2}\in \Theta \text{ для деякого } f_1\in\frH\right\} = \pi_2\Theta
+\end{gather*}
+називаються областю визначень та областю значення лінійного відношення, а множини
+\begin{equation*}
+	\ker \Theta = \left\{ \pi_1\widehat f: \widehat{f}\in\Theta, \pi_2\widehat{f}=0\right\}, \quad \mul\Theta = \left\{\pi_2\widehat f: \widehat{f}\in\Theta, \pi_1\widehat{f}=0\right\}
+\end{equation*}
+називаються відповідно ядром і багатозначною частиною лінійного відношення $\Theta$.
+Обернене до $\Theta$ лінійне відношення $\Theta^{-1}$ в $\frH$ визначається співвідношенням
+\begin{equation*}
+	\Theta^{-1} = \left\{\binom{f_1}{f_2}:\binom{f_2}{f_1}\in\Theta\right\}.
+\end{equation*}
+Спряжене лінійне відношення $\Theta^*$ визначається рівністю~\cite{Bennewitz1972,Coddington1973}
+\begin{equation*}
+	\Theta^*=\left\{\binom{h}{k}\in\frH'\oplus\frH:(k,f)_\frH=(h,g)_{\frH'}, \binom{f}{g}\in\Theta\right\}.
+\end{equation*}
+
+На відміну від оператора, лінійне відношення завжди можна замкнути. Більше того, в класі $\wt\calC(\calH)$ замкнених лінійних відношень завжди існують спряжене і обернене до $\Theta$ лінійні відношення. Ці переваги дозволяють після ототожнення оператора $T$ з його графіком $\Theta_T=\gr{T}$, розглядати $\bar\Theta_T$, $\Theta^*_T$, $\Theta^{-1}_T$ і роблять лінійні відношення незамінними при роботі з операторами.
+
+Сума $\Theta_1 + \Theta_2$ і покомпонентна сума $\Theta_1 \widehat+ \Theta_2$ двох лінійних відношень $\Theta_1$ і $\Theta_2$ визначаються рівностями
+
+\begin{equation}\label{eq_lr_sum}
+	\Theta_1+\Theta_2=\left\{\binom{f}{g+k}: \binom{f}{g}\in\Theta_1, \binom{f}{k}\in\Theta_2\right\},
+\end{equation}
+\begin{equation*}
+	\Theta_1\widehat+\Theta_2=\left\{\binom{f+h}{g+k}: \binom{f}{g}\in\Theta_1, \binom{h}{k}\in\Theta_2 \right\}.
+\end{equation*}
+Якщо покомпонентна сума є прямою (ортогональною), то вона позначається відповідно $\Theta_1 \dot+ \Theta_2$ ($\Theta_1 \oplus \Theta_2$).
+
+Зрозуміло, що 
+\begin{align*}
+	\dom{\Theta^{-1}} &= \ran{\Theta}, & \ran{\Theta^{-1}} &= \dom{\Theta},\\
+	\ker{\Theta^{-1}} &= \mul{\Theta}, & \mul{\Theta^{-1}} &= \ker{\Theta}.
+\end{align*}
+
+Ототожнюючи оператор $\lambda I\ (\lambda\in\bbC)$ з його графіком, отримаємо у відповідності з~\eqref{eq_lr_sum}
+\begin{equation}
+	\Theta-\lambda I=\left\{ \binom{f_1}{f_2-\lambda f_1} : \binom{f_1}{f_2}\in\Theta\right\}
+\end{equation}
+
+\begin{definition}
+	Нехай $\Theta \in \wt\calC(\calH)$. Точку $\lambda \in \bbC$ називають регулярною точкою лінійного відношення $\Theta$ і пишуть $\lambda\in\rho(\Theta)$, якщо $\ker(\Theta-\lambda I) = \{0\}$ і $\ran (\Theta-\lambda I) = \frH$. Спектр лінійного відношення позначають $\sigma(\Theta):=\bbC\setminus\rho(\Theta)$. Точковий та неперервний спектри лінійного відношення $\Theta$ визначається рівностями
+	\begin{equation*}
+		\sigma_p(\Theta) = \left\{\lambda\in\bbC:\ker(\Theta-\lambda I)\ne \{0\} \right\},
+	\end{equation*}
+	\begin{equation*}
+		\sigma_c(\Theta) = \left\{\lambda\in\bbC: \ker(\Theta-\lambda I)=\{0\},\ \ran(\Theta-\lambda I) \ne \overline{\ran (\Theta-\lambda I)} = \frH \right\}.
+	\end{equation*}
+\end{definition}
+
+
+% section третій_розділ_лінійні_відношення (end)
+
+% TODO добавить определение 5.36 (стр. 180)
+
+\subsection{Граничні трійки для симетричних операторів} % (fold)
+
+Підхід до теорії розширень симетричних операторів і формули Дж.~фон~Неймана виявився не зручним у застосуванні до граничних задач. У зв'язку з цим Дж.~Калкіним було запропоновано інший підхід, який базується на понятті "абстрактної граничної умови".
+Надалі цей підхід застосовувався в роботах М.\,І.~Вішіка~\cite{Visik1952} з теорії розширень диференціальних операторів в частинних похідних, М.\,Л.~Горбачука~\cite{Horb1971} з теорії операторів Штурма-Ліувілля з необмеженим операторним коефіцієнтом.
+В роботах А.\,Н.~Кочубея~\cite{Koch1975} і В.\,І.~Горбачук та М.\,Л.~Горбачука~\cite{Gorb1991} цей підхід трансформувався в теорію "абстрактних граничних просторів". Надалі використовується термінологія робіт В.~Деркача і М.~Маламуда, де ці об'єкти називаються граничними трійками.
+
+
+Нехай $\frH$ --- гільбертів простір, $A$ --- замкнений симетричний оператор в $\frH$ із щільною областю визначення $\dom A$ і рівними індексами дефекту. 
+
+\begin{definition}
+	Сукупність $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$, де $\calH$ --- гільбертів простір, $\Gamma_j:\dom{A^*} \mapsto \calH$ $(j\in \{0,1\})$ --- лінійні відображення, називається граничною трійкою для оператора $A^*$, якщо:
+	\begin{enumerate}
+		\item виконується формула Гріна
+		\begin{equation}\label{eq-CS-Green}
+			(A^*f,g)_\frH - (f,A^*g)_\frH = (\Gamma_1f,\Gamma_0g)_\calH - (\Gamma_0f,\Gamma_1g)_\calH \quad f,g \in \dom A^*;
+		\end{equation}
+		\item  відображення $\Gamma = \dbinom{\Gamma_0}{\Gamma_1}: \dom A^* \mapsto \calH\oplus\calH$ є сюр'єктивним.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Два розширення $\wt {A_1}$ і $\wt {A_2}$ оператора $A$ називаються диз'юнктними, якщо $\dom \wt {A_1} \cap \dom \wt {A_2} = \dom A$, і трансверсальними, якщо вони є диз'юнктними і $\dom \wt {A_1} + \dom \wt {A_2} = \dom A^*$.
+\end{definition}
+
+З кожною граничною трійкою пов'язані два розширення оператора $A$: 
+\begin{equation}\label{eq_bt_1}
+	A_j = A^* \upharpoonright \dom A_j, \qquad \dom A_j = \ker \Gamma_j,\  j\in \{0,1\}.
+\end{equation}
+
+\begin{proposition}
+	Нехай розширення $A_j$ $(j\in \{0,1\})$ визначено рівностями~\eqref{eq_bt_1}. Тоді:
+	\begin{enumerate}
+		\item $A_j = A^*_j$, $j\in \{0,1\}$;
+		\item розширення $A_0$ і $A_1$ трансверсальні.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	Нехай $A$ симетричний оператор в $\frH$ з рівними дефектними числами, $\overline{\dom A} = \frH$ і $A'$ --- деяке самоспряжене розширення оператора $A$. Тоді існує гранична трійка $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ оператора $A^*$ така, що $\dom A' = \ker \Gamma_0$, тобто $A' = A_0$.
+\end{proposition}
+
+\begin{definition}
+	Сукупність всіх власних розширень оператора $A$, поповнену операторами $A$ і $A^*$, позначають через $\Ext_A$.
+\end{definition}
+
+\begin{proposition}
+	Відображення $\Gamma:\dom{A^*}\mapsto \calH\oplus\calH$ задає бієктивну відповідність між сукупністю $\Ext_A$ і сукупністю $\wt\calC(\calH)$ замкнених лінійних відображень в $\calH$.
+	\begin{equation}
+		\Ext_A \ni \wt A \mapsto \Theta := \Gamma(\dom \wt A) = \{ 
+		{\begin{pmatrix} \Gamma_0 f & \Gamma_1f	\end{pmatrix}}^T : f\in \dom \wt A \} \in \wt \calC(\calH), 	
+	\end{equation}
+	(писатимемо $A_\Theta := \wt A$). При цьому виконуються наступні співвідношення:
+	\begin{enumerate}
+		\item $(A_\Theta)^* = A_{\Theta^*}$;
+		\item $A_{\Theta_1} \subseteq A_{\Theta_2} \Leftrightarrow \Theta_1 \subseteq \Theta_2$;
+		\item $A_{\Theta} \subseteq (A_{\Theta})^* \Leftrightarrow \Theta \subseteq \Theta^*$, зокрема $A_\Theta = (A_\Theta)^* \Leftrightarrow \Theta = \Theta^*$;
+		\item $A_{\Theta_1}$ і $A_{\Theta_2}$ диз'юнктні $\Leftrightarrow \Theta_1 \cap \Theta_2 = \{0\}$;
+		\item $A_{\Theta_1}$ і $A_{\Theta_2}$ трансверсальні $\Leftrightarrow \Theta_1 + \Theta_2 = \calH\oplus\calH$.
+		% TODO соответствующее предложение 7.8 (стр.245) имеет еще 2 пункта, то они нужны только при наличии опеределения графика оператора.
+	\end{enumerate}
+\end{proposition}
+
+\subsection{Функція Вейля}
+
+Введемо поняття $\gamma$-поля і функції Вейля симетричного оператора з~\cite{DerMal2017}, що дозволяють досліджувати спектральні питання теорії розширень.
+
+%TODO возможно, переставить в другое место
+\begin{definition}
+	Нехай $\frH_1$, $\frH_2$ --- гільбертові простори над полем $\bbC$. Позначимо через $\calB(\frH_1,\frH_2)$ множину лінійних обмежених операторів з $\frH_1$ в $\frH_2$ з областю визначення $\frH_1$. Зокрема, якщо $\frH_1=\frH_2=\frH$, покладемо $\calB(\frH)=\calB(\frH,\frH)$.
+\end{definition}
+
+\begin{definition}
+	Нехай $A$ --- симетричний оператор в $\frH$, $\wt A = \wt{A^*}\in\Ext_A$ і $\calH$ --- деякий гільбертів простір, для якого $\dim \calH = n_\pm(A)$. Оператор-функцію $\gamma:\rho(\wt A) \mapsto \calB(\calH,\frH)$ називають $\gamma$-полем оператора $A$, що відповідає розширенню $\wt A$, якщо:
+	\begin{enumerate}
+		\item $\gamma(\lambda)$ ізоморфно відображає $\calH$ на $\frN_\lambda$ при всіх $\lambda\in\rho(\wt A)$;
+		\item справджується тотожність:
+		\begin{equation*}
+			\gamma(\lambda) = U_{\zeta,\lambda}(\zeta) := [I+(\lambda-\zeta)(\wt A - \lambda)^{-1}]\gamma(\zeta), \qquad	\lambda,\zeta \in \rho(\wt A).
+		\end{equation*}
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	Нехай $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ --- гранична трійка для оператора $A^*$, $A_0:=A^*\upharpoonright \ker \Gamma_0$. Тоді:
+	\begin{enumerate}
+		\item при кожному $\lambda \in \rho(A_0)$ справедливим є розкладення
+		\begin{equation*}
+			\dom A^* = \dom A_0 + \frN_\lambda, \qquad \lambda\in \rho(A_0);
+		\end{equation*}
+		\item оператор-функція
+		\begin{equation*}
+			\gamma(\lambda):=(\Gamma_0\upharpoonright \frN_\lambda)^{-1}, \qquad \lambda\in\rho(A_0)
+		\end{equation*}
+		визначена коректно і голоморфна в $\rho(A_0)$ із значеннями в $\calB(\calH,\frN_\lambda)$;
+		\item $\gamma(\lambda)$ є $\gamma$-полем оператора $A$, що відповідає розширенню $A_0$;
+		\item справеджується тотожність
+		\begin{equation*}
+			\gamma(\bar \lambda)^* = \Gamma_1(A_0 - \lambda)^{-1}, \qquad	\lambda\in \rho(A_0).
+		\end{equation*}
+	\end{enumerate}
+\end{lemma}
+
+\begin{proposition}
+	Нехай $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ --- гранична трійка для оператора $A^*$ і $B=B^*\in \calB(\calH)$. Тоді сукупність $\Pi^B_0 = \{\calH,\Gamma^B_0,\Gamma^B_1\}$, де
+	\begin{equation*}
+		\Gamma^B_0 = B\Gamma_0 - \Gamma_1, \qquad \Gamma^B_1 = \Gamma_0,
+	\end{equation*}
+	також є граничною трійкою для оператора $A^*$.
+\end{proposition}
+
+\begin{definition}
+	Нехай $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ --- гранична трійка для оператора $A^*$. Оператор-функція $M(\cdot)$, що визначена рівністю
+	\begin{equation*}
+		M(\lambda)\Gamma_0f_\lambda = \Gamma_1f_\lambda, \qquad f_\lambda \in \frN_\lambda, \quad \lambda \in \rho(A_0), 
+	\end{equation*}
+	називається функцією Вейля оператора $A$, що відповідає граничній трійці $\Pi$.
+\end{definition}
+
+\begin{theorem} \label{th_vf_1}
+	Нехай $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ --- гранична трійка для оператора $A^*$, $M(\cdot)$ --- відповідна функція Вейля. Тоді:
+	\begin{enumerate}
+		\item $M(\cdot)$ коректно визначена та голоморфна в $\rho(A_0)$ як оператор-функція із значеннями в $\calB(\calH)$;
+		\item для всіх $\lambda, \zeta\in\rho(A_0)$ справджується тотожність 
+		\begin{equation*}
+			M(\lambda)-M(\zeta)^* = (\lambda-\bar\zeta)\gamma(\zeta)^*\gamma(\lambda), \qquad \lambda,\zeta \in \rho(A_0);
+		\end{equation*}
+		\item \label{iii} $M(\cdot)$ є $R[\calH]$-функцією та задовольняє умові
+		\begin{equation}\label{eq_vf_1}
+			0 \in \rho(\Im M(\lambda)), \qquad \lambda \in \bbC_+\cup\bbC_-;
+		\end{equation}
+		\item в кожній точці $\lambda \in \rho(A_0)$ існує (в рівномірній топології) похідна $M'(\lambda):=dM/d\lambda$ і
+		\begin{equation*}
+			M'(\lambda) = \gamma^*(\bar\lambda)\gamma(\lambda).
+		\end{equation*}
+		Якщо при цьому $\lambda \in \rho(A_0)\cap\bbR$, то $0 \in \rho(M'(\lambda))$, тобто оператор $M'(\lambda)$ є додатно визначеним.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem} \label{th_vf_2}
+	Нехай $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ --- гранична трійка для оператора $A^*$, $M(\cdot)$ --- відповідна функція Вейля. Тоді справедливими є співвідношення:
+	\begin{equation}\label{eq_vf_2}
+		\lim_{y\uparrow\infty}y \cdot \Im(M(iy)h,h) = \infty, \qquad h \in \calH\setminus\{0\},
+	\end{equation}
+	\begin{equation}\label{eq_vf_3}
+		s-\lim_{y\uparrow\infty}{\frac{M(iy)}{y}} = 0.
+	\end{equation}
+\end{theorem}
+
+\begin{definition}
+	Нехай $A^{(1)}$ і $A^{(2)}$ --- симетричні оператори в $\frH^{(1)}$ і $\frH^{(2)}$ відповідно, $\Pi^{(j)} = \{\calH, \Gamma^{(j)}_0,\Gamma^{(j)}_1\}$ --- гранична трійка для $A^{(j)*}$, $j \in \{1,2\}$. Граничні трійки $\Pi^{(1)}$ і $\Pi^{(2)}$ називають унітарно еквівалентними, якщо існує ізометричне відображення $U$ простору $\frH^{(1)}$ на $\frH^{(2)}$ таке, що
+	\begin{equation}
+		UA^{(1)*} = A^{(2)*}U, \qquad U\dom A^{(1)*} = \dom A^{(2)*},
+	\end{equation}
+	\begin{equation}
+		\Gamma^{(1)}_k = \Gamma^{(2)}_k U, \qquad k \in \{0,1\}.
+	\end{equation}
+\end{definition}
+
+\begin{theorem} \label{th_vf_3}
+	Нехай $\calH$ --- сепарабельний гільбертів простір, $n:=\dim \calH \le \infty$, $M \in R[\calH]$ і виконуються умови~\eqref{eq_vf_2}, \eqref{eq_vf_3} і \eqref{eq_vf_1}. Тоді існує гільбертів простір $\frH$, простий щільно заданий оператор $A$ в $\frH$ з рівними індексами дефекту $(n,n)$ і гранична трійка $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ такі, що $M(z)$ є функцією Вейля оператора $A$, що відповідає граничній трійці $\Pi$.
+
+	Гранична трійка $\Pi = \{\calH, \Gamma_0, \Gamma_1\}$ відновлюється за оператор-функцією $M(z)$ однозначно з точністю до унітарної еквівалентності. 
+\end{theorem}
+
+Таким чином, Теорема~\ref{th_vf_3}, з урахуванням Теореми~\ref{th_vf_1} \eqref{iii} і Теореми~\ref{th_vf_2}, дає повний опис всіх функцій Вейля щільно заданих симетричних операторів в гільбертовому просторі.
+
+\begin{theorem}
+	Нехай $\Pi=\{\calH,\Gamma_0,\Gamma_1\}$ --- гранична трійка для $A^*$, $M(\cdot)$ --- відповідна функція Вейля, $\Theta \in \wt\calC(\calH)$ і $\lambda \in \rho(A_0)$. Тоді правильними є наступні еквівалентності:
+	\begin{equation*}
+		\lambda \in \rho(A_\Theta) \Longleftrightarrow 0 \in \rho(\Theta - M(\lambda));
+	\end{equation*}
+	\begin{equation*}
+		\lambda\in \sigma_i(A_\Theta) \Longleftrightarrow 0 \in \sigma_i(\Theta - M(\lambda)), \ i \in \{p,c,r\}.
+	\end{equation*}
+	При цьому мають місце рівності
+	\begin{equation*}
+		\ker (A_\Theta - \lambda) = \gamma(\lambda)\ker(\Theta - M(\lambda)). 
+	\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+	Нехай $\Pi=\{\calH,\Gamma_0,\Gamma_1\}$ --- гранична трійка для $A^*$, $M(\cdot)$ --- відповідна функція Вейля, $\Theta \in \wt\calC(\calH)$, $A_\Theta$ --- відповідне власне розширення оператора $A$. Тоді:
+	\begin{enumerate}
+		\item формули
+		\begin{equation}~\label{eq_vf_4}
+			\dom (A_\Theta) = \{f\in\dom A^*:\Gamma f\in\Theta\}, \qquad \Theta:=\Gamma(\dom A_\Theta)
+		\end{equation}
+		встановлюють бієктивну відповідність між сукупністю всіх власних розширень $A_\Theta$ оператора $A$ і сукупністю замкнених лінійних відношень $\Theta\in\wt\calC(\calH)\setminus\{0\}$;
+		\item якщо $\rho(A_\Theta)\ne\varnothing$, то для $z\in\rho(A_0)\cap\rho(A_\Theta)$ справедливою є рівність
+		\begin{equation}~\label{eq_vf_5}
+			(A_\Theta-z)^{-1} = (A_0-z)^{-1} + \gamma(z)(\Theta-M(z))^{-1}\gamma(\bar z)^*;
+		\end{equation}
+		\item рівність~\eqref{eq_vf_5} встановлює бієктивну відповідність між сукупністю резольвент власних розширень $A_\Theta$ оператора $A$, для яких $\rho(A_\Theta)\ne\varnothing$, і сукупністю замкнених лінійних відношень $\Theta\in\wt\calC(\calH)$, для яких $\{z:0\in\rho(\Theta - M(z))\}\ne\varnothing$, при цьому для кожного $g\in\frH$ вектор-функція $u_z=(A_\Theta-z)^{-1}g$, $z\in\rho(A_\Theta)$ є розв'язком граничної задачі
+		\begin{equation*}
+		 	(A^*-z)f = g, \qquad \{\Gamma_0f,\Gamma_1f\}\in\Theta.
+		\end{equation*} 
+	\end{enumerate}
+\end{theorem}
+% \label{sec:section_name}
+
+% section section_name (end) 

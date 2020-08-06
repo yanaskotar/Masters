@@ -1,0 +1,163 @@
+%!TEX root = ../Masters.tex
+\section{ПРИКЛАДИ КАНОНІЧНИХ СИСТЕМ}
+
+\begin{example}
+	Розглянемо лінійну систему
+	\begin{equation}\label{eq-4.25}
+		Jy'=-zy \text{ на інтервалі } [0,b].
+	\end{equation}
+	Тут $H(x)\equiv I$ і $\calH = L^2_{I_2}(0,b) = L^2(0,b)\oplus L^2(0,b)$.
+
+	Фундаментальна матриця $W(x,z)$ приймає вигляд
+	\begin{equation}\label{eq-4.26}
+	  	W(x,z) = 
+	  	\begin{pmatrix}
+	  		\cos{zx} & \sin{zx}\\
+	  		-\sin{zx} & \cos{zx}
+	  	\end{pmatrix}.
+	\end{equation}
+	Дійсно,
+	\begin{equation*}
+		W'(x,z)J = z
+		\begin{pmatrix}
+	  		-\sin{zx} & \cos{zx}\\
+	  		-\cos{zx} & -\sin{zx}
+	  	\end{pmatrix}
+	  	\begin{pmatrix}
+	  		0 & -1\\
+	  		1 & 0
+	  	\end{pmatrix}
+	  	= z
+	  	\begin{pmatrix}
+	  		-\cos{zx} & \sin{zx}\\
+	  		-\sin{zx} & \cos{zx}
+	  	\end{pmatrix}
+	  	=zW(x,z)
+	\end{equation*}
+	і $W(0,z) = I_2$.
+
+	Знайдемо функцію Вейля, що відповідає граничній трійці \eqref{eq-4.3}:
+	\begin{equation*}
+		\Gamma_0W(z,x)^T c = \Gamma_0
+		\begin{pmatrix}
+	  		c_1 \cos{zx} - c_2 \sin{zx}\\
+	  		c_1 \sin{zx} + c_2 \cos{zx}
+	  	\end{pmatrix}
+	  	=
+	  	\begin{pmatrix}
+	  		c_1\\
+	  		c_1 \sin{zb} - c_2 \sin{zb}
+	  	\end{pmatrix};
+	\end{equation*}
+	\begin{equation*}
+		\Gamma_1W(x,z)^T c = 
+		\begin{pmatrix}
+	  		-c_2\\
+	  		c_1\sin{zb} + c_2 \cos{zb}
+	  	\end{pmatrix}.
+	\end{equation*}
+	Звідси знаходимо
+	\begin{multline}\label{eq-4.27}
+		M(z) = 
+		\begin{pmatrix}
+	  		0 & -1\\
+	  		\sin{zb} & \cos{zb}
+	  	\end{pmatrix}
+	  	\cdot
+	  	\begin{pmatrix}
+	  		1 & 0\\
+	  		\cos{zb} & -\sin{zb}
+	  	\end{pmatrix}^{-1}
+	  	\\=
+	  	\begin{pmatrix}
+	  		0 & -1\\
+	  		\sin{zb} & \cos{zb}
+	  	\end{pmatrix}
+	  	\cdot
+	  	\begin{pmatrix}
+	  		1 & 0\\
+	  		\frac{\cos{zb}}{\sin{zb}} & -\frac{1}{\sin{zb}}
+	  	\end{pmatrix}
+	  	=
+	  	\begin{pmatrix}
+ 	  		-\frac{\cos{zb}}{\sin{zb}} & \frac{1}{\sin{zb}}\\
+	  		\frac{1}{\sin{zb}} & -\frac{\cos{zb}}{\sin{zb}}
+	  	\end{pmatrix}
+	\end{multline}
+\end{example}
+
+\begin{example}
+	Розглянемо систему
+	\begin{equation}\label{eq-4.28}
+		Jy'=-zy \text{ на інтервалі } (0,\infty).
+	\end{equation}
+	Тут $H(x)=I_2\in L^1_{loc}[0,\infty)$, але $H\notin L^1(0,\infty)$.
+
+	Тому за Теоремою~\ref{th-4.10} для системи \eqref{eq-4.28} має місце випадок граничної точки. Фундаментальна матриця системи \eqref{eq-4.28} має вигляд \eqref{eq-4.26}, а відповідна функція Вейля знаходиться за формулою
+	\begin{equation*}
+		m_\infty(z) = \lim_{x\to\infty} \frac{w_{11}(x,z)}{w_{21}(x,z)}.
+	\end{equation*}
+	Тому для $z\in\bbC_+$ отримаємо
+	\begin{equation*}
+		m_\infty(z) = \lim_{x\to\infty} \frac{\cos{zx}}{-\sin{zx}} = \lim_{x\to\infty} i\frac{e^{-ixz}+e^{ixz}}{e^{-ixz}-e^{ixz}} = i.
+	\end{equation*}
+	Таким чином відповідна функція Вейля має вигляд
+	\begin{equation*}
+		m_\infty(z) = 
+		\begin{cases}
+			i, & z\in\bbC_+\\
+			-i, & z\in\bbC_-
+		\end{cases}
+	\end{equation*}
+\end{example}
+
+\begin{example}
+	Розглянемо систему \eqref{Canonical_sys} на інтервалі $(0,\infty)$ з гамільтоніаном $H(x)$, який задається наступним чином:
+	 \begin{gather}\label{eq-4.31}
+	 	H(x) = H_j = c_{\alpha_j}c^*_{\alpha_j}, \ x\in [x_{j-1},x_j], \ j=1,\ldots,n\\
+	 	H(x) \equiv I, \ x\in[x_n,\infty). \notag
+	 \end{gather}
+	Тут $c_{\alpha_j}$ мають вигляд $c_{\alpha_j} = \dbinom{\cos{\alpha j}}{\sin{\alpha j}}$, див.~\eqref{eq-si-1}, а $x_j$ --- точки на півосі $[0,\infty)$:
+	\begin{equation*}
+		0=x_0<x_1<\ldots<x_{n-1}<x_n.
+	\end{equation*}
+
+	Матрицант на кожному інтервалі $[x_{j-1},x_j]$ має вигляд
+	\begin{equation}\label{eq-4.32}
+		W_j(x,z) = I - zH_jJx,
+	\end{equation}
+	оскільки $W'_j = -zH_jJ$, тобто $W'_j J = zH_j$.
+
+	Зауважимо, що $H_jJH_j =0$ і тому
+	\begin{equation*}
+		W_jH_j = (1-zH_jJx)H_j = H_j,
+	\end{equation*}
+	тобто $W'_j J = $ задовольняє системі
+	% TODO вставить ссілку на систему
+	\begin{equation*}
+		W'_j J = zH_j = zW_jH.
+	\end{equation*}
+	
+	За теоремою
+	% TODO вставить ссылку на теорему
+	матрицант системи \eqref{Canonical_sys} має вигляд
+	\begin{equation}\label{eq-4.33}
+		W(x,z) = (I-zl_1H_1J)(I-zl_2H_2J)\ldots(I-zl_nH_nJ)i, \ z\in\bbC_+,
+	\end{equation}
+	де $l_j=x_j-x_{j-1}$, $j=1,\ldots,n$.
+
+	Оскільки $H\notin L^1(0,\infty)$, то для системи \eqref{Canonical_sys} має місце випадок граничної точки в $\infty$ і відповідна функція Вейля знаходиться за формулою \eqref{eq-4.23A}.
+
+	За теоремою
+	% TODO вставить ссылку на теорему
+	функція Вейля канонічної системи з гамільтоніаном \eqref{eq-4.31} приймає вигляд неперервного дробу
+	\begin{equation}
+		Q(z) = \ctg{\alpha_1} + \dfrac{1}
+									{-zb_1 + \dfrac{1}
+												{a_2 + \dfrac{1}
+															{-zb_2 + \ldots \dfrac{1}
+																				{-zb_n + \dfrac{1}
+																							{i-\ctg{\alpha_n}}}}}}
+	\end{equation}
+	де $b_j = l_j\sin^2{\alpha_j}$, $a_j = \ctg{\alpha_j} - \ctg{\alpha_{j-1}}$, $j=1,\ldots,n$.
+\end{example}

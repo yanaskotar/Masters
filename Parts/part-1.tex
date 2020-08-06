@@ -1,0 +1,478 @@
+%!TEX root = ../Masters.tex
+
+\section{ТЕОРІЯ РОЗШИРЕНЬ СИМЕТРИЧНИХ ОПЕРАТОРІВ. ФУНКЦІЇ КЛАСІВ $R$ ТА $S$} % (fold)
+%\label{sec:перший_розділ}
+
+\subsection{Розширення симетричних операторів} % (fold)
+%\label{sub:розширення_симетричних_операторів}
+
+В цьому розділі наведено огляд класичної теорії розширень симетричних операторів. Ця теорія була побудована в роботах Дж.~фон~Неймана~\cite{Neumann1930,Neumann1933} й детально викладена в~\cite{AkhGlaz78}. Тут нагадується означення симетричного і самоспряженого операторів в гільбертовому просторі, визначення їх дефектних чисел і наведено дві останні формули Дж.~фон~Неймана.
+
+Нехай $\frH$ --- гільбертів простір над полем $\bbC$, $\calD$ --- лінеал в $\frH$ і $T:\calD\mapsto \frH$ --- лінійне відображення, тобто
+\begin{equation*}
+	T(\lambda_1f_1+\lambda_2f_2) = \lambda_1Tf_1+\lambda_2Tf_2, \quad \forall f_1,f_2\in \calD,\ \lambda_1,\lambda_2\in\bbC.
+\end{equation*}
+
+Лінеал $\calD$ називають областю визначення оператора $T$ і позначають $\dom{T}$. Область значень оператора $T$ позначають $\ran{T}$.
+
+\begin{definition} \label{def_adjoint operator}
+	Нехай $T$ --- лінійний оператор в гільбертовому просторі $\frH$, $\overline{\dom}{T}=\frH$. Елемент $g\in\frH$ належить області визначення $\dom{T^*}$ спряженого з $T$ оператора $T^*$, якщо існує $h\in\frH$ такий, що
+	\begin{equation}\label{eq-adj-oper}
+		(Tf,g) = (f,h) \quad \forall f\in\dom{T}.
+	\end{equation}
+	В цьому випадку $T^*g=h$.
+\end{definition}
+
+\begin{remark*}
+	Якщо $\overline{\dom}{T}\ne\frH$, то $T^*$ є лінійним відношенням (див. у Pозділі \ref{Subsec-Linear-relations}).
+\end{remark*}
+
+\begin{definition} \label{def_Symmetr_operator}
+	Лінійний оператор $A$ називається симетричним, якщо  $\overline{\dom}{A}=\frH$ і виконується рівність
+	\begin{equation*}
+		(Af,g) = (f,Ag), \quad \forall f,g\in \dom{A}
+	\end{equation*}
+\end{definition}
+
+З означень \ref{def_adjoint operator} і \ref{def_Symmetr_operator} випливає, що для симетричного оператора $A$ виконується включення $A\subset A^*$.
+
+\begin{definition}\label{def_self-adj-oper}
+	Оператор $A$ називається самоспряженим, якщо $A=A^*$. 
+\end{definition}
+% \begin{remark*}
+% 	Означення \ref{def_self-adj-oper} еквівалентно тому, що оператор $A$ самоспряжений, якщо він симетричний і $\dom{A}=\dom{A^*}$.	
+% \end{remark*}
+
+\begin{definition}
+	Графіком лінійного оператора $T$ називається множина
+	\begin{equation*}
+		\gr{T} = \{ (f,Tf): f\in\dom{T} \}\subset \frH\times\frH.
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Оператор $T$ (не обов'язково лінійний) називається замкненим, якщо з одночасного виконання умов
+	\begin{equation*}
+		f_n\in\dom{T}, \quad \lim_{n\to\infty}{f_n}=f, \quad \lim_{n\to\infty}{Tf_n}=g 
+	\end{equation*}
+	випливає, що
+	\begin{equation*}
+		f\in\dom{T}, \quad g=Tf.
+	\end{equation*}
+\end{definition}
+\begin{remark*}
+	Лінійний оператор $T$ є замкненим, якщо його графік замкнений в $\frH\times\frH$. 
+\end{remark*}
+
+\begin{definition}
+	Оператор $\wt A$ називається розширенням $A$, якщо 
+	\begin{equation*}
+		\dom A \subset \dom{\wt A} \quad \text{і} \quad \wt Af = Af,\ f\in A.
+	\end{equation*}
+	При цьому, якщо $\dom A = \dom{\wt A}$, то $A = \wt A$.
+\end{definition}
+
+\begin{definition}
+	Розширення $\wt A$ симетричного оператора $A$ називають власним розширенням, якщо $A\subsetneq \wt A \subsetneq A^*$.
+\end{definition}
+
+Якщо $\wt A$ --- симетричне розширення оператора $A$ ($A\subset \wt A$), то $(\wt A)^* = \wt{A^*} \subset A^*$ і, отже,
+\begin{equation*}
+	A\subset \wt A \subset \wt{A^*} \subset A^*.
+\end{equation*}
+А з останнього випливає, що симетричне розширення $\wt A$ оператора $A$ обов'язково є його власним розширенням.
+
+Позначимо $\ker{A} = \{ f\in\dom{A}:Af=0 \}$ ядро оператора $A$.
+ 
+\begin{definition}
+	Оператор $V:\frH_1 \mapsto \frH_2$ ($\frH_1$ і $\frH_2$ можуть бути підпросторами одного простору) називають ізометричним, якщо для всіх $f,g\in \frH_1$ виконується
+	\begin{equation*}
+		(Vf,Vg)_2 = (f,g)_1
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Нехай $T$ --- довільний лінійний оператор. Число $\lambda$ називається точкою регулярного типу оператора $T$, якщо існує $k(\lambda)>0$ така, що $\forall f\in \dom{T}$ виконується
+	\begin{equation*}
+		||(T-\lambda I)f||\ge k||f||.
+	\end{equation*}
+	При цьому множину всіх точок регулярного типу оператора $T$ називають полем регулярності цього оператора і позначають $\widehat\rho(T)$. 
+\end{definition}
+
+Зрозуміло, що власні значення оператора $T$ не є його точками регулярного типу.
+
+\begin{remark*}
+	Число $\lambda$ є точкою регулярного типу оператора $T$ тоді і тільки тоді, коли оператор $(T-\lambda I)^{-1}$ існує і є обмеженим на множині $\ran{(T-\lambda I)}$ значень оператора $(T-\lambda I)$.
+\end{remark*}
+
+\begin{remark*}
+	Множина точок регулярного типу завжди є відкритою множиною.
+\end{remark*}
+
+Для симетричного оператора $A$ і $z=x+iy$ $(y \ne 0)$ $\forall f\in \dom{A}$:
+\begin{equation*}
+	||(A-zI)f||^2 = ||(A-xI)f||^2 + y^2||f||^2 \ge y^2||f||^2.
+\end{equation*}
+Тобто верхня і нижня комплексні півплощини є зв'язними компонентами поля регулярності оператора $A$.
+
+Для ізометричного оператора $V$ і $\xi \in \bbC$ зв'язними компонентами поля регулярності є внутрішня частина одиничного кола $(|\xi|<1)$ і його зовнішня частина $(|\xi|>1)$, оскільки
+\begin{gather*}
+	||(V-\xi I)f|| \ge ||Vf|| - |\xi|\cdot ||f|| = (1-|\xi|)\cdot ||f||,\ |\xi|<1; \\
+	||(V-\xi I)f|| \ge |\xi|\cdot ||f|| - ||Vf|| = (|\xi|-1)\cdot ||f||,\ |\xi|>1.
+\end{gather*}
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}} \label{dim_for_all_lambda}
+	Якщо $\Omega$ є зв'язна компонента поля регулярності лінійного оператора $T$, то розмірність підпростору $\frH \ominus \ran{(T - \lambda I)}$ однакова для всіх $\lambda \in \Omega$.
+\end{theorem}
+
+\begin{definition}
+	Нехай оператор $T$ є замкненим в $\frH$.
+	\begin{enumerate}
+		\item Якщо $z\in\widehat\rho(T)$ і $\ran(T-zI)=\frH$, то $z$ називають регулярною точкою оператора $T$.
+		\item Сукупність регулярних точок оператора $T$ називають його резольвентною множиною і позначають $\rho(T)$.
+		\item Множина $\sigma(T)=\bbC\setminus\rho(T)$ називають спектром оператора $T$.
+		\item Множина $\widehat\sigma(T)=\bbC\setminus\widehat\rho(T)$ називають ядром спектра оператора $T$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Нехай оператор $T$ є замкненим в $\frH$.
+	\begin{enumerate}
+		\item Точковим спектром оператора $T$ називають множину
+		\begin{equation}
+		 	\sigma_p(T) = \{z\in\bbC : \ker(T-zI)\ne\{0\}\}.
+		\end{equation}
+		\item Неперервним спектром оператора $T$ називають множину
+		\begin{equation}
+			\sigma_c(T) = \{z\in\bbC\setminus\sigma_p(T) : \ran(T-zI)\ne\overline{\ran(T-zI)}\}.
+		\end{equation}
+		\item Залишковим спектром оператора $T$ називають множину
+		\begin{equation}
+			\sigma_r(T) = \sigma(T)\setminus\widehat\sigma(T).
+		\end{equation}
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Дефектним числом лінійного многовиду $\frM$ називають розмірність його ортогонального доповнення $\frN = \frH \ominus \frM$ ($\defect \frM = \dim{\frN}$).
+\end{definition}
+
+\begin{definition}
+	Дефектне число лінійного многовиду $\ran{(T - \lambda I)}$ точок $\lambda \in \Omega$ поля регулярності оператора $T$ називають дефектним числом оператора $T$ в компоненті зв'язності $\Omega$ поля регулярності $T$. При цьому $\frN_\lambda = \frH \ominus \ran{(T-\bar\lambda I)}$ називають дефектним підпростором оператора $T$ для точки $\lambda$, а будь-який ненульовий елемент $\frN_\lambda$ називають дефектним елементом.
+\end{definition}
+
+Для симетричного оператора $A$:
+\begin{equation*}
+	\defect \ran (A-\bar{z}I) = 
+	\begin{cases}
+		m, & \Im z > 0,\\
+		n, & \Im z < 0.
+	\end{cases}
+\end{equation*}
+
+Для ізометричного оператора $V$:
+\begin{equation*}
+	\defect \ran (I - \bar{\xi}I) = 
+	\begin{cases}
+		m, & |\xi| > 1,\\
+		n, & |\xi| < 1.
+	\end{cases}
+\end{equation*}
+
+\begin{definition}
+	Дефектні числа симетричного (ізометричного) оператора утворюють впорядковану пару $(n_+,n_-) := (m,n)$, яку називають індексами дефекту оператора.
+\end{definition}
+
+\begin{corollary} \label{cor2}\
+	\begin{enumerate}
+		\item Для симетричного оператора $A$: $n_+=n_-$, якщо $A$ має дійсну точку регулярного типу. \\
+		Для ізометричного оператора $V$: $n_+=n_-$, якщо $V$ має точку регулярного типу, що належить одиничному колу.
+		\item \label{cor2-i2} Якщо $A$ --- симетричний оператор, то будь-яке $z\notin \bbR$ є для спряженого оператора $A^*$ власним значенням:
+		\begin{itemize}
+			\item кратності $m$, якщо $\Im z < 0$,
+			\item кратності $n$, якщо $\Im z > 0$. 
+		\end{itemize}
+		\item Дефектні числа ізометричного оператора $V$ можуть бути визначені за допомогою рівностей:
+		\begin{equation*}
+			\begin{cases}
+				n_+ = \defect \dom V,\\
+				n_- = \defect \ran V.
+			\end{cases}
+		\end{equation*}
+		\item Якщо $A$ --- симетричний оператор в $\frH$, а $B$ --- обмежений самоспряжений оператор, то індекси дефекту $A$ і $A+B$ є однаковими.
+	\end{enumerate}
+\end{corollary}
+
+\begin{definition}
+	Наступне перетворення $V$ замкненого симетричного оператора $A$ називається перетворенням Келі:
+	\begin{equation} \label{Cayley_f_cases}
+		\begin{cases}
+			(A - \bar zI)h = f;\\
+			(A - zI)h = Vf,
+	 	\end{cases}
+	\end{equation}
+ 	якщо $z\notin \bbR$, $h\in \dom{A}$.
+\end{definition}
+
+Беручи до уваги теорему~\ref{dim_for_all_lambda}, побачимо, що
+\begin{equation}
+	\begin{cases}
+		m = \defect \ran{A(\bar z)} = \defect \dom{V}, \\
+		n = \defect \dom{A(z)} = \defect \ran{V}, 
+	\end{cases}
+\end{equation}
+тобто індекси дефекту $(m,n)$ оператора $A$ співпадає з індексом дефекту оператора $V$.
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}}
+	Якщо $V$ --- ізометричний оператор і якщо многовид $\ran (I-V)$ є щільним в $\frH$, то оператор $A$ є симетричним оператором, а $V$ --- його перетворення Келі.
+\end{theorem}
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}}
+	Нехай $A$ і $\wt A$ --- симетричні оператори, а $V$ і $\wt V$ --- їх перетворення Келі. Тоді $\wt A$ є розширенням $A$ тоді і тільки тоді, коли $\wt V$ є розширенням $V$.
+\end{theorem}
+
+Таким чином, щоб знайти деяке симетричне розширення $\wt A$ симетричного оператора $A$, необхідно спочатку перейти до його перетворення Келі $V$, а після його розширення до $\wt V$~--- назад.
+
+Ізометричне розширення $\wt V$ оператора $V$ можна визначити наступним чином:
+\begin{equation} \label{extention_V}
+	\wt V = 
+	\begin{cases}
+		Vf, \ f\in \dom{V},\\
+		V_1f,\ f\in \calF,
+	\end{cases}
+\end{equation}
+де $\calF$ і $\calG$ --- підпростори однакової розмірності дефектних підпросторів $\frH\ominus\dom{V}$ і $\frH\ominus\ran{V}$ оператора $V$, а $V_1:\calF\mapsto\calG$ --- довільний ізометричний оператор.
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}}
+	\begin{enumerate}
+		\item Для того, щоб симетричний оператор був максимальним, необхідно і достатньо, щоб одне з його дефектних чисел дорівнювало нулю. 
+		\item Для того, щоб симетричний оператор був самоспряженим, необхідно і достатньо, щоб обидва його дефектних числа дорівнювали нулю. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}}
+	Нехай $A$ --- довільний симетричний оператор з індексами дефекту $n_\pm$. Оператор $A$ завжди можна розширити до максимального, але:
+	\begin{itemize}
+		\item якщо $n_+\ne n_-$, то серед розширень немає самоспряжених;
+		\item якщо $n_+=n_-<\infty$, то будь-яке максимальне розширення оператора $A$ є самоспряженим;
+		\item якщо $n_+=n_-=\infty$, то серед розширень є як самоспряжені, так і ні.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}}
+	Нехай $A$ --- довільний симетричний оператор з областю визначення $\dom A$, а $\frN_{\bar z}$ і $\frN_z$ $(\Im z > 0)$ --- деяка пара його дефектних підпросторів. Тоді область визначення $\dom{A^*}$ оператора $A^*$ може бути подана у наступному вигляді:
+	\begin{equation} \label{Neumann_1}
+		\dom{A^*} = \dom{A} \oplus \frN_{\bar z} \oplus \frN_z.
+	\end{equation}
+\end{theorem}
+
+Формула~\eqref{Neumann_1} називається першою формулою Неймана і дає представлення області визначення спряженого до $A$ оператора.
+
+З неї випливає, що симетричний оператор $A$ є самоспряженим тоді і тільки тоді, коли він має індекси дефекту $n_+=n_-=0$.
+
+Знайдемо область визначення $\dom{\wt A}$ симетричного розширення $\wt A$ оператора $A$. Оберемо $\calF_z \subseteq \frN_{\bar z} = \frH \ominus \ran{A(\bar z)}$ і $\calG_z \subseteq \frN_{z} = \frH \ominus \ran{A(z)}$. Тоді з~\eqref{extention_V} випливає:
+\begin{equation*}
+ 	\dom{\wt A} = (\wt V - I)\dom{\wt V} = (\wt V -I)(\dom{V} \oplus \calF_z) = (V - I)\dom{V} \oplus (V_1 - I)\calF_z = \dom{A} \oplus (V_1 - I)\calF_z.
+\end{equation*}
+
+\begin{theorem}\normalfont{\cite{AkhGlaz78}} \label{Neumann_2_Theorem}
+	Формула
+	\begin{equation}
+ 		\dom{\wt A} = \dom{A} \oplus (I - V_1)\calF_z.
+	\end{equation}
+	встановлює взаємно-однозначну відповідність між множиною замкнених симетричних розширень $\wt A$ оператора $A$ і множиною частково ізометричних операторів $V_1: \frN_{\bar z} \mapsto \frN_z$.
+	При цьому розширення $\wt A$ оператора $A$ є самоспряженим тоді і тільки тоді, коли $V_1$ --- унітарне відображення з $\frN_{\bar z}$ на $\frN_z$.
+\end{theorem}
+% або, покладаючи $V_1 = -V'$,
+% \begin{equation*}
+% 	D_{\wt A} = D_A \oplus (V' + I)F_z.
+% \end{equation*}
+% Із $\wt A \subset A^*$ випливає, що при 
+% \begin{equation*} 
+% 	f = f_0 + g_z +V'g_z \quad (f\in D_{\wt A}, \ f_0\in D_A, \ g_z \in F_z)
+% \end{equation*}
+% будемо мати
+% \begin{equation} \label{Neumann_2}
+% 	\wt Af = Af_0 + zg_z + \bar zV'g_z.
+% \end{equation}
+
+% Формула~\eqref{Neumann_2} називається \emph{другою формулою Неймана} і описує всі розширення $\wt A$ оператора $A$. 
+
+% Якщо для оператора $A$ його індекси дефекту $m=n\neq 0$, то $\wt A$ є самоспряженим оператором і $g_z$ пробігатиме весь простір $\frN_{\bar z}$, а $V'g_z$ --- весь простір $\frN_z$, тобто $D_{A^*} = D_{\wt A}$.
+
+% subsection розширення_симетричних_операторів (end)
+
+\subsection{Клас Піка-Неванлінни-Герглотца} % (fold)
+%\label{sub:клас_піка_неванлінни_герглотца}
+
+В цьому розділі наводяться необхідні відомості з теорії функцій, зокрема теорії $R$-функцій, тобто аналітичних в верхній півплощині функцій зі значеннями в $\bbC_+=\{z: \Im(z)\ge 0\}$.
+Термін $R$-функції був запропонований в літературі по теорії електричних ланцюгів~\cite{LaneTom1958}. Інтегральні представлення таких функцій було отримано паралельно в роботах Р.~Неванлінyи~\cite{Nev1919}, Ф.~Ріса~\cite{Riesz1913}, Г.~Піка~\cite{Pick1916} та Г.~Герглотца~\cite{Her1911}.
+
+\begin{definition}
+	Будемо казати, що функція $f$ належить класу Піка-Неванлінни-Герглотца ($R$), якщо $f$ голоморфна в $\bbC_+$ і $\Im f(\lambda)\ge 0$ для всіх $\lambda \in \bbC_+$.
+\end{definition}
+
+\begin{theorem}\normalfont{\cite{KacKre1968}} \label{th-IntR}
+	Для того, щоб $f$ належала класу $R$ необхідно і достатньо, щоб вона допускала інтегральне представлення
+	\begin{equation}\label{eq-IntR}
+		f(\lambda) = A+B\lambda+\int\limits_{-\infty}^{+\infty} \left( \frac{1}{t-\lambda} - \frac{t}{1+t^2} \right)\,d\sigma(t),
+	\end{equation}
+	де $A=\bar{A}$, $B\ge 0$, а $\sigma(t)$ --- неперервна справа неспадна функція така, що
+	\begin{equation*}
+		\int\limits_{-\infty}^{+\infty} \frac{d\sigma(t)}{1+t^2}<\infty.
+	\end{equation*}
+\end{theorem}
+
+\begin{definition}
+	Нехай $\calH$ --- допоміжний гільбертів простір. Будемо говорити, що оператор-функція $F(\lambda)$ належить до класу $R[\calH]$, якщо
+	\begin{enumerate}
+		\item $F(\cdot)$ голоморфна в $\bbC_+\cup\bbC_-$;
+		\item $\Im F(\lambda)\ge0$ для $\lambda\in\bbC_-$;
+		\item $F(\bar{\lambda}) = F(\lambda)^*$ для $\lambda\in\bbC_+\cup\bbC_-$.
+	\end{enumerate}
+\end{definition}
+
+Оператор-функції $F(\cdot)\in R[\calH]$ допускають інтегральне представлення \eqref{eq-IntR}, в якому $A$ і $B$ є операторами, а $\sigma(t)$ --- неспадна оператор-функція, така що
+\begin{equation*}
+	\int\limits_{-\infty}^{+\infty} (1+t^2)^{-1}\,d(\sigma(t)h,h) < \infty \quad \forall h\in\calH
+\end{equation*}
+
+\begin{corollary}
+	Якщо $u$ --- невід'ємна гармонійна функція в $\bbC_+$, то існують $B\ge 0$ і неперервна справа неспадна функція $\sigma(t)$ така, що
+	\begin{equation} \label{eq-ImR}
+		u(\lambda)=By + \int\limits_{-\infty}^{+\infty} \frac{y}{(t-x)^2+y^2}\,d\sigma(t).
+	\end{equation}
+\end{corollary}
+
+\begin{remark}
+	В умовах Теореми~\ref{th-IntR} $A, B$ --- єдині і визначаються рівностями:
+	\begin{equation*}
+		A:=\Re f(i),\quad B:=\lim_{y\to \infty} \frac{\Im f(iy)}{y}.
+	\end{equation*}
+\end{remark}
+
+\begin{theorem} [Формула обертання Стілт'єса]
+	В умовах Теореми~\ref{th-IntR} функція $\sigma(t)$ у своїх точках неперервності визначається рівністю
+	\begin{equation} \label{eq-Stil}
+		\sigma(b)-\sigma(a)=\frac{1}{\pi} \lim_{y \downarrow 0} \int\limits_a^b \Im f(x+iy)\,dx.
+	\end{equation}
+\end{theorem}
+
+\begin{remark}
+	Якщо $a$ і $b$ --- довільні точки, то функція розподілу приймає вигляд:
+	\begin{equation*}
+		\frac{\sigma(b+0)+\sigma(b-0)}{2} - \frac{\sigma(a+0)+\sigma(a-0)}{2} = \frac{1}{\pi} \lim_{y \downarrow 0} \int\limits_a^b \Im f(x+iy)\,dx.
+	\end{equation*}
+\end{remark}
+
+\begin{definition}
+	Функція $f\in R$ відноситься до класу $R_0$, якщо вона має інтегральне представлення 
+	\begin{equation} \label{eq-R0}
+		f(\lambda) = \int\limits_{-\infty}^{+\infty} \frac{d\sigma(t)}{t-\lambda},
+	\end{equation} 
+	де $\sigma(\lambda)$ --- обмежена неспадна функція, тобто
+	\begin{equation} \label{eq-R0-sigma}
+		\int\limits_{-\infty}^{+\infty} d\sigma(t)<\infty.
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	Будемо казати, що $f\in R$ належить класу $R_1$, якщо вона допускає інтегральне представлення
+	\begin{equation} \label{eq-R1}
+		f(\lambda) = \gamma + \int\limits_{-\infty}^{+\infty} \frac{d\sigma(t)}{t-\lambda},
+	\end{equation}
+	де
+	\begin{equation} \label{eq-R1-sigma}
+		\int\limits_{-\infty}^{+\infty} \frac{d\sigma(t)}{1+|t|}<\infty.
+	\end{equation}
+\end{definition}
+
+\begin{theorem}\normalfont{\cite{KacKre1968}} \label{th-R0-n&s}
+	Нехай $f\in R$. Тоді наступні твердження є еквівалентними:
+	\begin{enumerate}
+		\item $f\in R_0$;
+		\item $\sup\limits_{y>0} |yf(iy)| < \infty$;
+		\item $\sup\limits_{y>0} |y\Im f(iy)| < \infty$, $\lim\limits_{y\uparrow\infty} f(iy)=0$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\normalfont{\cite{KacKre1968}} \label{th-R1-n&s}
+	Для того, щоб $R$-функція $f(\lambda)$ належала класу $R_1$ необхідно і достатньо, щоб збігався інтеграл
+	\begin{equation} \label{eq-R1-n&s}
+		\int\limits_1^{+\infty} \frac{\Im f(i\eta)}{\eta}\,d\eta.
+	\end{equation}
+\end{theorem}
+
+
+% subsection клас_піка_неванлінни_герглотца (end)
+
+\subsection{Класи Стілт'єса. Клас функцій $S^+$}
+
+Класи Стілт'єса було введено і досліджено М.\,Г.~Крейном в його роботах~\cite{Krein1946,Krein1951,Krein1952}. Позначення цих класів було дано на честь Т.~Стілт'єса.
+
+\begin{definition} \label{ClassS}
+	Кажуть, що функція $f$ належить класу $S^+$, якщо
+	\begin{enumerate}
+		\item $f\in R $;
+		\item $f$ --- голоморфна в $\bbC\setminus\left[0{,}\infty\right)$;
+		\item $f(x)\ge 0$, для всіх $x<0$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}\normalfont{\cite{KacKre1968}}\label{th-IntS} 
+	Для того, щоб $f\in S^+$, необхідно і достатньо, щоб функція $f$ допускала наступне інтегральне представлення
+	\begin{equation}\label{eq-IntS}
+	    f(\lambda)=\gamma + \int\limits_{-0}^{\infty} \frac{d\sigma(t)}{t-\lambda},
+	\end{equation}
+	де $\gamma \ge 0$, $\sigma(t)$ --- неспадна функція така, що
+	\begin{equation}\label{eq-IntS-sigma}
+		\int\limits_{0}^{\infty} \frac{d\sigma(t)}{t+1} < \infty .
+	\end{equation}
+\end{theorem}
+
+\begin{theorem}\normalfont{\cite{KacKre1968}}\label{th-preMain}
+	Нехай $f\in R$. Тоді наступні твердження еквівалентні:
+	\begin{enumerate}
+		\item $f\in S^+$;
+		\item $\lambda f(\lambda)\in R$;
+		%\item $  \lambda f(\lambda^2)\in R $.
+	\end{enumerate}
+\end{theorem}
+
+%subsection клас_S+
+
+\subsection{Перетворення розгортання}
+
+Для довільної функції $f$ мероморфної в $\bbC\setminus \bbR_+$ визначено її перетворення $\wt f$, що визначається формулою
+\begin{equation} \label{eq-Turn}
+	\wt f(z) := zf(z^2), \quad (z\in\bbC_+).
+\end{equation}
+Це перетворення називають перетворенням розгортання функції $f(z)$~\cite{KalWinWor2006,DerKov2015}.
+
+Як відомо, для функції $f$ з класу Стілт'єса її перетворення розгортання $\wt f$ належить до класу $S$.
+
+\begin{theorem}\normalfont{\cite{KacKre1968}}\label{th-main}
+	 Нехай $f\in S$. Тоді наступні твердження еквівалентні:
+	 \begin{enumerate}
+	 	\item $zf(z)\in R$,
+	 	\item $zf(z^2)\in R$.
+	 \end{enumerate}
+\end{theorem}
+
+Таким чином, з Теореми~\ref{th-main} випливає, що перетворення розгортання відображає клас $S$ в частину класу $R$.
+
+Наступна теорема відповідає на питання які додаткові умови характеризують функції з класу $R$, що утворені перетворенням розгортання для деякої функції $f\in S$.
+
+\begin{definition}
+	Будемо казати, що функція $f\in R$ є симетричною і писати $\wt f\in R^{SYM}$, якщо
+	\begin{equation} \label{eq-SYM}
+	 	\wt f(-z) = -\wt f(z).
+	 \end{equation} 
+\end{definition}
+
+\begin{theorem}
+	 Перетворення розгортання встановлює взаємно-однозначну відповідність між класами $S$ і $R^{SYM}$.
+\end{theorem}
+
+% subsection Перетворення розгортання
+% section перший_розділ (end)
