@@ -1,0 +1,60 @@
+%!TeX root = ../Masters-talk.tex
+
+\begin{frame}{Приклади}
+	\begin{block}{Приклад 1}
+		Розглянемо систему $Ju'(x)=-zH(x)u(x)$ на інтервалі $(0,\infty)$ з гамільтоніаном
+		\begin{gather}\label{eq-4.31}
+			H(x) = H_j = c_{\alpha_j}c^*_{\alpha_j}, \ x\in [x_{j-1},x_j], \ j=1,\ldots,n\\
+			H(x) \equiv I, \ x\in[x_n,\infty). \notag
+		\end{gather}
+		Тут $c_{\alpha_j} = \dbinom{\cos{\alpha j}}{\sin{\alpha j}}$, а $x_j\in [0,\infty)$: $0=x_0<x_1<\ldots<x_{n-1}<x_n.$
+	\end{block}
+	% $H\notin L^1(0,\infty)$, тоді для системи \eqref{Canonical_sys} має місце випадок граничної точки в $\infty$ і відповідна функція Вейля знаходиться за формулою \eqref{eq-4.23A}.
+	% За Теоремою 5 функція Вейля канонічної системи з гамільтоніаном \eqref{eq-4.31} приймає вигляд неперервного дробу
+	\begin{equation}
+		M(z) = \ctg{\alpha_1} + \dfrac{1}
+									{-zb_1 + \dfrac{1}
+												{a_2 + \dfrac{1}
+															{-zb_2 + \ldots \dfrac{1}
+																				{-zb_n + \dfrac{1}
+																							{i-\ctg{\alpha_n}}}}}}
+	\end{equation}
+	де $b_j = l_j\sin^2{\alpha_j}$, $a_j = \ctg{\alpha_j} - \ctg{\alpha_{j-1}}$, $j=1,\ldots,n$.
+\end{frame}
+
+\begin{frame}{Приклади: Регулярний випадок}
+	\begin{block}{Приклад 2}
+		Розглянемо лінійну систему на інтервалі $(0,b)$:
+		\begin{equation}\label{eq-4.25}
+			Jy'=-zy.
+		\end{equation}
+		Тут $H(x)\equiv I$ і $\calH = L^2_{I_2}(0,b) = L^2(0,b)\oplus L^2(0,b)$,
+	\end{block}
+	% За Теоремою 2 гранична трійка має вигляд \eqref{eq-4.3} і функція Вейля має вигляд
+	\begin{equation}\label{eq-4.27}
+		M(z) = 
+	  	\begin{pmatrix}
+ 	  		-\dfrac{\cos{zb}}{\sin{zb}} & \dfrac{1}{\sin{zb}}\\
+	  		\dfrac{1}{\sin{zb}} & -\dfrac{\cos{zb}}{\sin{zb}}
+	  	\end{pmatrix}
+	\end{equation}
+\end{frame}
+
+\begin{frame}{Приклади: Сингулярний випадок}
+	\begin{block}{Приклад 3}
+		Розглянемо систему на інтервалі $(0,\infty)$:
+		\begin{equation}\label{eq-4.28}
+			Jy'=-zy.
+		\end{equation}
+		Тут $H(x)=I_2\in L^1_{loc}[0,\infty)$, але $H\notin L^1(0,\infty)$.
+	\end{block}
+
+	% За Теоремою 3 для системи \eqref{eq-4.28} має місце випадок граничної точки, а відповідна функція Вейля співпадає з коефіцієнтом Вейля-Тітчмарша \eqref{eq-4.23A}:
+	\begin{equation*}
+		m_\infty(z) = 
+		\begin{cases}{}
+			i, & z\in\bbC_+\\
+			-i, & z\in\bbC_-
+		\end{cases}
+	\end{equation*}
+\end{frame}

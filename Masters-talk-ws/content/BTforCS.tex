@@ -1,0 +1,119 @@
+%!TeX root = ../Masters-talk.tex
+
+% \section{Граничні трійки для канонічних систем}
+
+\begin{frame}{Граничні трійки}
+	Сукупність
+	\begin{equation} \label{BT}\tag{BT}
+	 	\Pi = \{\calH, \Gamma_0, \Gamma_1\},
+	 \end{equation} 
+	де $\calH$ --- гільбертів простір, $\Gamma_j:\dom{A^*} \mapsto \calH$ $(j\in \{0,1\})$ --- лінійні відображення, називається \textbf{граничною трійкою} для оператора $A^*$, якщо:
+	\begin{enumerate}
+		\item виконується формула Гріна
+		\begin{equation}\label{eq-CS-Green}\tag{GF}
+			(A^*f,g)_\frH - (f,A^*g)_\frH = (\Gamma_1f,\Gamma_0g)_\calH - (\Gamma_0f,\Gamma_1g)_\calH \quad f,g \in \dom A^*;
+		\end{equation}
+		\item  відображення $\Gamma = \dbinom{\Gamma_0}{\Gamma_1}: \dom A^* \mapsto \calH\oplus\calH$ є сюр'єктивним.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Граничні трійки: Функція Вейля}
+	\begin{description}
+		\item [$\lambda$ --- точка регулярного типу] оператора $A$, якщо $\exists k>0:\forall f\in\dom{A}$ виконується $$||(A-\lambda I)f||\ge k||f||.$$
+		% \item [Множина всіх точок регулярного типу] позначається $\hat\rho (A)$.
+		\item [$\lambda$ --- регулярна точка] оператора $A$, якщо $\lambda$ є точкою регулярного типу і $\ran{(T-\lambda)}=\frH$.
+		\item [Множина всіх регулярних точок] позначається $\rho(A)$.
+		\item [Функцією Вейля,] що відповідає граничній трійці $\{\calH, \Gamma_0, \Gamma_1\}$ для оператора $A^*$ називається оператор-функція $M(\cdot)$, що визначена рівністю
+		\begin{equation} \tag{WF}
+			M(\lambda)\Gamma_0f_\lambda = \Gamma_1f_\lambda,
+		\end{equation}
+		де $\lambda \in \rho(A_0)$, $A_0=A^*\upharpoonright\dom{A_0}$, $\dom{A_0}=\ker{\Gamma_0}$,\\
+		$f_\lambda \in \frN_\lambda(A^*) = \frH\ominus\ran{(A^*-\bar{\lambda}I)}$.
+	\end{description}
+\end{frame}
+
+\begin{frame}{Функції Вейля для канонічних систем}
+	\begin{block}{Теорема 2 [Winkler95]}
+		Нехай дані дві канонічні системи з гамільтоніанами $H(x)$ і $\wt{H}(x)=H(l+x)$ для деякого $l>0$ і $x\in [0,\infty)$. Якщо $W$ --- фундаментальна матриця системи, що відповідає $H$, а $m$ і $\wt{m}$ --- коефіцієнти Вейля, відповідні до $H(x)$ і $\wt{H}$, то
+		\begin{equation}\label{eq-4.24}
+			m(z) = \frac{w_{11}(l,z) \wt{m}(z) + w_{12}(l,z)}{w_{21}(l,z) \wt{m}(z) + w_{22}(l,z)}.
+		\end{equation}		
+	\end{block}
+\end{frame}
+
+\begin{frame}{Функції Вейля для канонічних систем}
+	\begin{block}{Теорема 3 [Winkler95]}
+		Якщо в умовах Теореми 2 для всіх $x\in(0,l)$ виконується
+		\begin{equation} \tag{3.1}
+			H(x) = e_\phi e^T_\phi,\quad e_\phi = \dbinom{\cos{\phi}}{\sin{\phi}},
+		\end{equation}
+		то
+		\begin{equation}\label{eq-4.25}
+			M(z) = \ctg{(\phi)} + \dfrac{1}{-zl\sin^2{\phi} + \dfrac{1}{\wt{M}(z) - \ctg{(\phi)}}}, \text{ якщо } \phi\ne0
+		\end{equation}
+		і
+		\begin{equation}\label{eq-4.26}
+			M(z) = lz + \wt{M}(z), \text{ якщо } \phi = 0.
+		\end{equation}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Функції Вейля для канонічних систем: Регулярний випадок}
+	\begin{block}{Теорема 4}
+		Нехай гамільтоніан $H \in L^1(a,b)$ і відображення $\Gamma_0, \Gamma_1:\calT\to\bbC^2$ задано рівностями
+		\begin{equation} \label{eq-4.3}\tag{4.1}
+			\Gamma_0f = 
+			\begin{bmatrix}
+				f_{1}(a) \\ f_{1}(b)
+			\end{bmatrix},\quad
+			\Gamma_1f = 
+			\begin{bmatrix}
+				-f_{2}(a) \\ f_{2}(b)
+			\end{bmatrix}\quad
+			(f,g)\in\calT.
+		\end{equation}
+		Тоді сукупність $\{\bbC^2,\Gamma_0,\Gamma_1\}$ утворює граничну трійку для $\calT$ таку, що для всіх $(f,f^1),(g,g^1)\in\calT$ виконується формула Гріна
+		\begin{equation}
+			(f^1,g)_{L^2_H} - (f,g^1)_{L^2_H} = (\Gamma_1f,\Gamma_0g)_{\bbC^2} - (\Gamma_0f,\Gamma_1g)_{\bbC^2}.
+		\end{equation}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Функції Вейля для канонічних систем: Регулярний випадок}
+\begin{block}{Теорема 5}
+Функція Вейля, що відповідає граничній трійці \eqref{eq-4.3} має вигляд
+		\begin{equation}\label{eq-4.7}\tag{5.1}
+			M(b,\lambda)=
+			\begin{pmatrix}
+				-w_{11}(b,\lambda)w_{12}(b,\lambda)^{-1} & w_{12}(b,\lambda)^{-1} \\
+				w_{21}(b,\lambda) - w_{22}(b,\lambda)w_{12}(b,\lambda)^{-1}w_{11}(b,\lambda) & w_{22}(b,\lambda)w_{12}(b,\lambda)^{-1}
+			\end{pmatrix},
+	\end{equation}
+	де $W(x,\lambda)$ --- фундаментальна матриця, що має блочний вигляд
+	\begin{equation}
+	 	W(x,\lambda)= 
+	 	\begin{bmatrix}
+	 		w_{11}(x,\lambda) & w_{12}(x,\lambda)\\
+	 		w_{21}(x,\lambda) & w_{22}(x,\lambda)
+	 	\end{bmatrix}
+	 \end{equation}
+	 \end{block}
+\end{frame}
+
+
+\begin{frame}{Функції Вейля для канонічних систем: Сингулярний випадок}
+	\begin{block}{Теорема 6}
+		Нехай $H\notin L^1(0,b)$ і для системи \eqref{Canonical_sys} має місце випадок граничної точки в $b$. При цьому:
+		\begin{enumerate}
+			\item Сукупність $\{\bbC,\Gamma_0,\Gamma_1\}$, в якій
+			\begin{equation}\label{eq-4.24}\tag{6.1}
+				\Gamma_0f=f_{1}(0),\quad \Gamma_1f = -f_{2}(0),
+			\end{equation}
+			утворює граничну трійку для $\calT$.
+			\item Відповідна функція Вейля співпадає з коефіцієнтом Вейля-Тітчмарша
+			\begin{equation}\label{eq-4.23A} \tag{6.2}
+				M(x,\lambda) = m_\infty(\lambda) = \lim_{x\to\infty} \frac{w_{11}(x,\lambda)h + w_{12}(x,\lambda)}{w_{21}(x,\lambda)h+w_{22}(x,\lambda)}\quad \text{ для всіх } h\in\bbR.
+			\end{equation} 
+		\end{enumerate}
+	\end{block}
+\end{frame}

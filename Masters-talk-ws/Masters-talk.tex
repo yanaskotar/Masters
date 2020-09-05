@@ -1,0 +1,90 @@
+\documentclass[
+	10pt,
+	hyperref = {unicode,pdfpagelabels=false},
+	notheorems,
+	aspectratio=169
+	]{beamer}
+\mode<presentation>
+
+\usetheme{metropolis}
+\metroset{
+	titleformat = smallcaps,
+	titleformat title = smallcaps,
+	progressbar = foot,
+	block = fill
+}
+
+% \usepackage	[
+% 			style		= numeric,
+% 			maxbibnames = 99,
+% 			sorting		= nyt,
+% 			doi			= true,
+% 			url			= false,
+% 			isbn 		= true,
+% 			eprint		= true,
+% 			language	= autobib,
+% 			autolang	= other
+% 			]{biblatex}
+% \addbibresource{ref.bib}
+
+\usefonttheme{professionalfonts}
+% \setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans}
+	% progressbar = foot]
+% \usetheme[
+% 	titleformat 		= smallcaps,
+% 	titleformat title 	= smallcaps,
+% 	block 				= fill,
+% 	sectionpage 		= progressbar,
+
+
+
+\usepackage[english, ukrainian]{babel}
+
+\usepackage{amssymb,amsfonts,latexsym,mathtext,amsthm,amsmath,multicol,csquotes,mathtools,enumerate}
+\mathtoolsset{showonlyrefs,showmanualtags}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{ulem}
+
+\input{designations.tex}
+
+
+\title{Канонічні системи і їх функції Тітчмарша-Вейля}
+% \subtitle{Modelling, Analysis, and Simulation}
+
+\author{Скотар Яна}
+
+\institute
+{Кафедра прикладної математики\\ Донецький національний університет імені Василя Стуса}
+
+\date[20.12.2019]{}
+
+
+\begin{document}
+
+\maketitle
+
+\input{content/CanonicalSystems}
+\input{content/LinearRelations}
+\input{content/BTforCS}
+\input{content/Examples}
+
+\begin{frame}{Список використаних посилань}
+	\begin{enumerate}
+		\item Derkach V.\,A., Malamud M.\,M. J. Funct. Anal. 1991. Vol. 95, No 1. P. 1--95.
+		\item Деркач В.\,О., Маламуд М.\,М. Праці Інституту математики НАН України, 2017. 
+		\item Winkler H. Integr equ oper theory. 1995. Vol. 22, No 3. P. 360--374.
+		\item Remling K. De Gruyter studies in mathematics. 2018. X+196 p.
+		\item Kaltenbäck M., Winkler H., Woracek H. Mathemachine Nachrichten. 2010. Vol. 280, No 13-14. P. 1518--1536.
+		\item de Branges L. Prentice-Hall, Inc. 1968. 326 p.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[standout]
+\texttt{{\textbackslash}end\{talk\}}\\[1em]
+Дякую за увагу!
+\end{frame}
+
+\end{document}

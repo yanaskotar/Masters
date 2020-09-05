@@ -1,0 +1,63 @@
+%!TeX root = ../Masters-talk.tex
+
+% \section{Канонічні системи}
+
+\begin{frame}{Канонічні системи}
+	\begin{description}
+		\item [Канонічною системою] називається диференціальне рівняння у формі
+		\begin{equation} \label{Canonical_sys}\tag{CS}
+			Ju'(x) = -zH(x)u(x), \quad 
+			J=
+			\begin{pmatrix}
+				0 & -1\\
+				1 & 0
+			\end{pmatrix},
+		\end{equation}
+		$x\in (a,b),\  -\infty\le a<b \le +\infty$
+		
+		з гамільтоніаном $H(x) = \begin{pmatrix}
+				h_1(x) & h_3(x)\\
+				h_3(x) & h_2(x)
+			\end{pmatrix}$:
+		\begin{enumerate}
+			\item $H(x) \in \bbR^{2\times 2}$
+			\item $H \in L^1_{loc}(a,b)$
+			\item $H(x)\ge 0 \text{ майже для всіх } x\in(a,b)$
+			\item $H(x)\ne 0 \text{ майже для всіх } x\in(a,b)$
+		\end{enumerate}
+	\end{description}
+\end{frame}
+
+\begin{frame}{Канонічні системи}
+		\begin{description}
+			\item [Розв'язком канонічної системи] буде називатися функція $u:(a,b)\to\bbC^2$ , якщо $u\in AC(a,b)$ і \eqref{Canonical_sys} справджується майже всюди.
+			\item [Матрицею переходу] $T$ називається матричний розв'язок, що приймає значення в $\bbC^{2\times 2}$ однорідного рівняння
+			\begin{equation}\label{eq-Canonycal_sys_matrix}
+				JT'=-zHT
+			\end{equation}
+			з початковою умовою $T(c) = I$.
+			\item [Фундаментальна матриця] визначається як $W(x,\lambda) = T(x,\lambda)^{T}$ і має блочной вигляд
+			\begin{equation} \tag{FM}
+			 	W(x,\lambda)= 
+			 	\begin{bmatrix}
+			 		w_{11}(x,\lambda) & w_{12}(x,\lambda)\\
+			 		w_{21}(x,\lambda) & w_{22}(x,\lambda)
+			 	\end{bmatrix}
+			 \end{equation}
+		\end{description}
+\end{frame}
+
+\begin{frame}{Канонічні системи: Простір $L^2_H$}
+	Нехай
+\begin{equation*}
+ 	\calL = \left\{f:(a,b)\to \bbC^2: f \text{ є вимірною }, \int\limits_a^b f^*(x)H(x)f(x)\,dx <\infty \right\},
+\end{equation*} 
+тоді
+\begin{equation}
+ 	||f|| = \left(\int\limits_a^b f^*Hf\,dx\right)^{1/2}, \quad f\in\calL,
+\end{equation}
+і $L_H^2(a,b)$ визначається як $\calL/\calN$, де $\calN=\{f\in\calL: ||f||=0\}$ зі скалярним добутком
+\begin{equation}\tag{SP}
+ 	(f,g)_{L^2_H}=\int\limits_a^b g^*(x)H(x)f(x)\,dx
+ \end{equation} 
+\end{frame}

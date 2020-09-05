@@ -1,0 +1,42 @@
+%!TeX root = ../Masters-talk.tex
+
+% \section{Лінійні відношення}
+
+\begin{frame}{Лінійні відношення}
+	\begin{description}
+		\item [Графіком лінійного оператора] $T$ називається множина
+		\begin{equation*} \tag{Graph}
+			\gr{T} = \{ (f,Tf): f\in\dom{T} \}\subset \frH\times\frH.
+		\end{equation*}
+		\item [Лінійним відношенням] називається лінійний підпростір в $\frH\times\frH$.
+		\item [Максимальне відношення] $\calT$ канонічної системи \eqref{Canonical_sys} визначається як
+		\begin{align} \label{eq-relation-2} \tag{MAX}
+			\calT=\{&(f,g): f,g\in L^2_H(a,b), f\in AC(a,b) \text{ і } Jf'(x)=-H(x)g(x)\\
+			& \text{ виконується майже для всіх } x\in(a,b)\}.
+		\end{align}
+		\item [Предмінімальне відношення] $\calT_{00}$ визначається
+		\begin{equation*} \tag{pre-MIN}
+			\calT_{00} = \{(f,g)\in\calT: f(x) \text{ є фінітними в околах } a \text{ і } b \}.
+		\end{equation*}
+		\item [Мінімальним відношенням] називається замикання $\calT_0=\overline{\calT_{00}}$ відношення $\calT_{00}$.
+	\end{description}
+\end{frame}
+
+\begin{frame}{Лінійні відношення}
+	\begin{description}
+		\item [Спряжене] лінійне відношення $\calT^*$ визначається рівністю
+		\begin{equation*}
+			\calT^*=\left\{\binom{h}{k}\in\frH'\times\frH:(k,f)_\frH=(h,g)_{\frH'}, \binom{f}{g}\in\calT\right\}.
+		\end{equation*}
+		\item [Симетричним] лінійне відношення $\calT\in\frH\times\frH$ називають, якщо $\calT\subset\calT^*$.
+	\end{description}
+
+	\
+
+	\begin{block}{Теорема 1 [Remling2018]}
+		\begin{enumerate}
+			\item Максимальне відношення $\calT$ є замкненим;
+			\item Мінімальне відношення $\calT_0$ є замкненим і симетричним, і $\calT^*_0=\calT$.
+		\end{enumerate}
+	\end{block}
+\end{frame}
